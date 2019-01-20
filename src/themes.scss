@@ -1,0 +1,19 @@
+@import '~@nebular/theme/styles/theming';
+@import '~@nebular/theme/styles/themes/cosmic';
+
+$nb-themes: nb-register-theme((
+  // add your variables here like:
+  // color-bg: #4ca6ff,
+), cosmic, cosmic);
+
+nb-layout-column{
+  padding: 0px !important;
+}
+
+.nb-theme-cosmic nb-card {
+  width: 320px !important;
+}
+.nb-theme-cosmic [nbButton]{
+  cursor: pointer !important;
+  border: 0 !important;
+}

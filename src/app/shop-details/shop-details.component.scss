@@ -1,0 +1,64 @@
+@import '../common-styles/mixins.scss';
+.scrollable {
+    overflow-y: scroll;
+    height: calc(100vh - 76px);
+}
+
+.container {
+    @include flex(row, null, wrap);
+    .price {
+        text-align: center;
+        font-weight: 700;
+        font-size: 20px;
+    }
+    .description {
+        font-weight: 600;
+        font-size: 18px;
+    }
+    .title {
+        text-align: center;
+        font-weight: 700;
+        font-size: 20px;
+        text-transform: capitalize;
+    }
+    .card {
+        margin: 5px 10px;
+    }
+}
+
+.block-elements {
+    @include flex(column, center, wrap);
+    .info {
+        text-align: center;
+        h1 {
+            font-size: 40px;
+        }
+    }
+    .schedule {
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .schedule-info {
+        font-weight: 700;
+        font-size: 23px;
+    }
+}
+
+.action-button {
+    margin-left: auto;
+}
+
+.form {
+    @include flex(column);
+    label {
+        margin: 15px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .error {
+        color: red;
+        font-size: 12px;
+        font-weight: 500;
+        margin-left: 10px;
+    }
+}

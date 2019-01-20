@@ -1,0 +1,19 @@
+<nb-layout>
+  <nb-layout-header><button class="action-button" nbButton (click)="open()">+ Add new shop </button></nb-layout-header>
+  <nb-layout-column>
+      <div class="block-elements" [nbSpinner]="loading$ | async">
+        <div id="map"></div>
+        <div class="container">
+          <nb-card class="scrollable">
+            <nb-list *ngIf="shops$ | async as shops; else preolder">
+              <nb-list-item *ngFor="let shop of shops" (click)="details(shop)">
+                <nb-user [name]="shop.title" [title]="shop.address">
+                </nb-user>
+              </nb-list-item>
+            </nb-list>
+          </nb-card>
+        </div>
+      </div>
+  </nb-layout-column>
+</nb-layout>
+<ng-template #preolder>Loading...</ng-template>

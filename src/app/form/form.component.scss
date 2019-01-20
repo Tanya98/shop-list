@@ -1,0 +1,35 @@
+@import '../common-styles/mixins.scss';
+$green: #60be74;
+.form {
+    @include flex(column);
+}
+
+#shop-coordinates {
+    width: 100%;
+    height: 250px;
+}
+
+label {
+    margin: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+input {
+    &:focus {
+        outline-color: red;
+    }
+}
+
+input.ng-valid {
+    &:focus {
+        outline-color: $green;
+    }
+}

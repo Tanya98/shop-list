@@ -1,0 +1,46 @@
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Add new product</nb-card-header>
+    <div class="form" [formGroup]="productForm">
+      <input type="text" formControlName="id" hidden>
+      <label for="title">Product title *</label>
+      <input type="text" nbInput placeholder="Enter title" formControlName="title">
+      <span class="error" *ngIf="form.title.errors?.required && form.title.touched">Field is required!</span>
+
+      <label for="title">Product description *</label>
+      <input type="text" nbInput placeholder="Enter description" formControlName="description">
+      <span class="error" *ngIf="form.description.errors?.required && form.description.touched">Field is required!</span>
+
+      <label for="title">Product price *</label>
+      <input type="text" nbInput placeholder="Enter price" formControlName="price">
+      <span class="error" *ngIf="form.price.errors?.required && form.price.touched">Field is required!</span>
+      <button nbButton class="but-add" (click)="do(productForm.value, dialog)">Save</button>
+    </div>
+  </nb-card>
+</ng-template>
+<nb-layout>
+  <nb-layout-header>
+    <button class="action-button" nbButton (click)="showOnAdd(dialog)">+ Add new product </button>
+  </nb-layout-header>
+  <nb-layout-column>
+    <div class="scrollable">
+      <div *ngIf="shop; else preolder" class="block-elements">
+        <div class="info">
+          <h1>{{shop.title}}</h1>
+          <p class="schedule-info">Schedule</p>
+          <p class="schedule">{{shop.schedule}}</p>
+        </div>
+        <div *ngIf="shop" class="container">
+          <nb-card class="card" *ngFor="let product of shop.goods" (click)="showOnEdit(dialog, product)">
+            <nb-card-header class="title">{{product.title}}</nb-card-header>
+            <nb-card-body class="description">
+              {{product.description}}
+            </nb-card-body>
+            <nb-card-footer class="price">{{product.price}}$</nb-card-footer>
+          </nb-card>
+        </div>
+      </div>
+    </div>
+  </nb-layout-column>
+</nb-layout>
+<ng-template>Loading...</ng-template>

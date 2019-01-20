@@ -1,0 +1,19 @@
+<nb-card #dialogRef>
+  <nb-card-header>Add new shop</nb-card-header>
+  <div class="form" [formGroup]="addNewShop">
+    <label for="title">Shop title *</label>
+    <input type="text" nbInput placeholder="Enter title" formControlName="title">
+    <span class="error" *ngIf="form.title.errors?.required && form.title.touched">Field is required!</span>
+
+    <label for="title">Shop address *</label>
+    <input type="text" nbInput placeholder="Enter address" formControlName="address">
+    <span class="error" *ngIf="form.address.errors?.required && form.address.touched">Field is required!</span>
+
+    <label for="title">Shop schedule *</label>
+    <input type="text" nbInput placeholder="Enter schedule" formControlName="schedule">
+    <span class="error" *ngIf="form.schedule.errors?.required && form.schedule.touched">Field is required!</span>
+
+    <div id="shop-coordinates"></div>
+    <button nbButton class="but-add" (click)="addShop(addNewShop.value, dialogRef)">Add Shop</button>
+  </div>
+</nb-card>
